@@ -2,7 +2,7 @@ import {
   useFonts,
   Inter_300Light,
   Inter_500Medium,
-  Inter_700Bold,
+  Inter_600SemiBold,
 } from '@expo-google-fonts/inter';
 import { TamaguiProvider } from '@tamagui/core';
 import { SplashScreen, Stack } from 'expo-router';
@@ -33,7 +33,7 @@ export default function RootLayout() {
   const [fontsLoaded] = useFonts({
     Inter_300Light,
     Inter_500Medium,
-    Inter_700Bold,
+    Inter_600SemiBold,
   });
 
   if (!fontsLoaded) {

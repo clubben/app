@@ -21,14 +21,14 @@ export const interFont = createFont({
     3: '600',
   },
   letterSpacing: {
-    1: 0,
-    2: -1,
-    // 3 will be -1
+    1: -0.08,
+    2: -0.24,
+    3: 0.48,
   },
   // (native) swap out fonts by face/style
   face: {
     300: { normal: 'Inter_300Light' },
     500: { normal: 'Inter_500Medium' },
-    700: { normal: 'Inter_700Bold' },
+    600: { normal: 'Inter_600SemiBold' },
   },
 });

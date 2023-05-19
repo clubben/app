@@ -5,6 +5,8 @@
     "strictNullChecks": true,
     "paths": {
       "components/*": ["src/components/*"],
+      "hooks/*": ["src/hooks/*"],
+      "utils/*": ["src/utils/*"],
       "src/*": ["src/*"],
     }
   }

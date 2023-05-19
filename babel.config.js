@@ -14,6 +14,8 @@ module.exports = function (api) {
             // This needs to be mirrored in tsconfig.json
             src: ['./src'],
             components: ['./src/components'],
+            hooks: ['./src/hooks'],
+            utils: ['./src/utils'],
           },
         },
       ],

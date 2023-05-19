@@ -1,17 +1,20 @@
 import { Link as NLink } from 'expo-router';
 import { LinkProps } from 'expo-router/build/link/Link';
 
-import { Text } from './Text';
+import { Text, TextProps } from './Text';
 
-type LinkProps1 = {
+type LinkProps1 = TextProps & {
   children: React.ReactNode;
   href: LinkProps['href'];
 };
 
-export default function Link({ children, href }: LinkProps1) {
+export default function Link(props: LinkProps1) {
+  const { children, href, ...rest } = props;
   return (
     <NLink href={href}>
-      <Text variant="link">{children}</Text>
+      <Text variant="link" {...rest}>
+        {children}
+      </Text>
     </NLink>
   );
 }

@@ -1,8 +1,14 @@
-import { Text as TText, styled } from '@tamagui/core';
+import { Text as TText, styled, GetProps } from '@tamagui/core';
 
 export const Text = styled(TText, {
   variants: {
     variant: {
+      headline: {
+        fow: '700',
+        fontFamily: '$heading',
+        col: '$textPrimary',
+        fontSize: 15,
+      },
       link: {
         fow: '500',
         fontFamily: '$body',
@@ -19,7 +25,7 @@ export const Text = styled(TText, {
         fow: '300',
         fontFamily: '$body',
         col: '$textSecondary',
-        fontSize: 12,
+        fontSize: 13,
       },
     },
   },
@@ -28,3 +34,5 @@ export const Text = styled(TText, {
     variant: 'body',
   },
 });
+
+export type TextProps = GetProps<typeof Text>;
