@@ -17,7 +17,7 @@ export default function NavThemeProvider({ children }: NavThemeProviderProps) {
           background: theme.backgroundPrimary.val,
           border: theme.borderSecondary.val,
           card: theme.backgroundSecondary.val,
-          primary: color.accent.val,
+          primary: color.accentPrimary.val,
           text: theme.textPrimary.val,
           notification: theme.backgroundSecondary.val,
         },

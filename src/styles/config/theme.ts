@@ -6,18 +6,20 @@ export const light = {
   textDisabled: 'rgba(0, 0, 0, 0.32)',
   textAlwaysWhite: 'rgb(255, 255, 255)',
   textAlwaysBlack: 'rgb(0, 0, 0)',
-  textLink: tokens.color.accent.val,
+  textLink: tokens.color.accentPrimary.val,
 
   iconPrimary: 'rgb(0, 0, 0)',
   iconSecondary: 'rgba(0, 0, 0, 0.56)',
   iconDisabled: 'rgb(175, 175, 175)',
-  iconLink: tokens.color.accent.val,
+  iconLink: tokens.color.accentPrimary.val,
 
   borderPrimary: 'rgba(0, 0, 0, 0.12)',
   borderSecondary: 'rgba(0, 0, 0, 0.08)',
 
   backgroundPrimary: '#fff',
   backgroundSecondary: 'rgb(245, 245, 245)',
+  backgroundOverlayPrimary: 'rgba(0, 0, 0, 0.1)',
+  backgroundOverlaySecondary: 'rgba(0, 0, 0, 0.08)',
 };
 
 type BaseTheme = typeof light;
@@ -28,16 +30,18 @@ export const dark: BaseTheme = {
   textDisabled: 'rgba(255, 255, 255, 0.28)',
   textAlwaysWhite: 'rgb(255, 255, 255)',
   textAlwaysBlack: 'rgb(0, 0, 0)',
-  textLink: tokens.color.accent.val,
+  textLink: tokens.color.accentPrimary.val,
 
   iconPrimary: 'rgb(255, 255, 255)',
   iconSecondary: 'rgba(255, 255, 255, 0.54)',
   iconDisabled: 'rgb(69, 69, 69)',
-  iconLink: tokens.color.accent.val,
+  iconLink: tokens.color.accentPrimary.val,
 
   borderPrimary: 'rgba(255, 255, 255, 0.12)',
   borderSecondary: 'rgba(255, 255, 255, 0.08)',
 
   backgroundPrimary: '#040506', //rgba(4, 5, 6, 0.34)',
   backgroundSecondary: 'rgb(14, 15, 17)',
+  backgroundOverlayPrimary: 'rgba(255, 255, 255, 0.1)',
+  backgroundOverlaySecondary: 'rgba(255, 255, 255, 0.08)',
 };

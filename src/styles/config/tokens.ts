@@ -12,12 +12,13 @@ export const tokens = createTokens({
     lg: 16,
   },
   radius: {
-    sm: 4,
-    md: 8,
-    lg: 12,
+    sm: 6,
+    md: 10,
+    lg: 14,
   },
   color: {
-    accent: 'rgba(255, 142, 120, 0.88)',
+    accentPrimary: 'rgba(255, 142, 120, 0.88)',
+    accentSecondary: 'rgba(255, 142, 120, 0.6)',
   },
   zIndex: { 0: 0, 1: 100, 2: 200 },
 });
