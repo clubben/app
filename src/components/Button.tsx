@@ -1,5 +1,4 @@
 import {
-  GetProps,
   SizeTokens,
   Stack,
   Text,
@@ -24,6 +23,9 @@ export const ButtonFrame = styled(Stack, {
   alignItems: 'center',
   justifyContent: 'center',
   flexDirection: 'row',
+
+  // this fixes a flex bug where it overflows container
+  minWidth: 0,
 
   variants: {
     variant: {
@@ -57,17 +59,18 @@ export const ButtonFrame = styled(Stack, {
         return {
           height: tokens.size[name],
           borderRadius: tokens.radius[name],
-          gap: tokens.space[name].val * 0.4,
-          paddingHorizontal: getSpace(name, {
-            shift: -1,
-          }),
+          gap: tokens.space[name].val * 0.5,
+          paddingHorizontal: tokens.space[name],
         };
       },
     },
   } as const,
-});
 
-type ButtonProps = GetProps<typeof ButtonFrame>;
+  defaultVariants: {
+    size: '$md',
+    variant: 'solid',
+  },
+});
 
 export const ButtonText = styled(Text, {
   name: 'ButtonText',
@@ -99,7 +102,7 @@ const ButtonIcon = (props: { children: any }) => {
   const theme = useTheme();
 
   return cloneElement(props.children, {
-    size: smaller.val * 0.5,
+    size: smaller.val,
     color: theme.iconPrimary.get(),
   });
 };

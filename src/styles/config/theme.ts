@@ -1,6 +1,7 @@
 import { tokens } from './tokens';
 
 export const light = {
+  color: 'rgb(0, 0, 0)', // default for icons
   textPrimary: 'rgb(0, 0, 0)',
   textSecondary: 'rgba(0, 0, 0, 0.56)',
   textDisabled: 'rgba(0, 0, 0, 0.32)',
@@ -25,6 +26,7 @@ export const light = {
 type BaseTheme = typeof light;
 
 export const dark: BaseTheme = {
+  color: 'rgb(255, 255, 255)', // default for icons
   textPrimary: 'rgb(255, 255, 255)',
   textSecondary: 'rgba(255, 255, 255, 0.54)',
   textDisabled: 'rgba(255, 255, 255, 0.28)',
