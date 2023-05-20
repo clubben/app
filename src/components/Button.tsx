@@ -7,7 +7,7 @@ import {
   useTheme,
   withStaticProperties,
 } from '@tamagui/core';
-import { getSize, getSpace } from '@tamagui/get-token';
+import { getSize } from '@tamagui/get-token';
 import { cloneElement, useContext } from 'react';
 
 type ButtonVariants = 'accent' | 'solid' | 'ghost';
