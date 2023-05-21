@@ -15,6 +15,7 @@ type ButtonVariants = 'accent' | 'solid' | 'ghost';
 export const ButtonContext = createStyledContext({
   size: '$md' as SizeTokens,
   variant: 'solid' as ButtonVariants,
+  disabled: false,
 });
 
 export const ButtonFrame = styled(Stack, {
@@ -64,11 +65,17 @@ export const ButtonFrame = styled(Stack, {
         };
       },
     },
+    disabled: {
+      true: {
+        opacity: 0.4,
+      },
+    },
   } as const,
 
   defaultVariants: {
     size: '$md',
     variant: 'solid',
+    disabled: false,
   },
 });
 

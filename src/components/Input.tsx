@@ -67,6 +67,10 @@ const InputValue = styled(TextInput, {
   context: InputContext,
   f: 1,
   color: '$textPrimary',
+  fow: '500',
+  fontFamily: '$body',
+  col: '$textPrimary',
+  fontSize: 14,
 });
 
 const InputIcon = (props: { children: any }) => {

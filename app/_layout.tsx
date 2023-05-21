@@ -5,27 +5,15 @@ import {
   Inter_600SemiBold,
 } from '@expo-google-fonts/inter';
 import { TamaguiProvider } from '@tamagui/core';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { SplashScreen, Stack } from 'expo-router';
 import Head from 'expo-router/head';
 import { useColorScheme } from 'react-native';
+import AuthProvider from 'src/contexts/auth/AuthProvider';
 import NavThemeProvider from 'src/styles/NavThemeProvider';
 import config from 'tamagui.config';
 
-function RootNavigation() {
-  return (
-    <Stack
-      screenOptions={{
-        headerShown: false,
-      }}>
-      <Stack.Screen
-        name="auth"
-        options={{
-          presentation: 'modal',
-        }}
-      />
-    </Stack>
-  );
-}
+const queryClient = new QueryClient({});
 
 export default function RootLayout() {
   const theme = useColorScheme();
@@ -54,11 +42,30 @@ export default function RootLayout() {
         <meta property="expo:spotlight" content="true" />
       </Head>
 
-      <TamaguiProvider config={config} defaultTheme={theme ?? undefined}>
-        <NavThemeProvider>
-          <RootNavigation />
-        </NavThemeProvider>
-      </TamaguiProvider>
+      <QueryClientProvider client={queryClient}>
+        <TamaguiProvider config={config} defaultTheme={theme ?? undefined}>
+          <NavThemeProvider>
+            <AuthProvider>
+              <RootNavigation />
+            </AuthProvider>
+          </NavThemeProvider>
+        </TamaguiProvider>
+      </QueryClientProvider>
     </>
+  );
+}
+function RootNavigation() {
+  return (
+    <Stack
+      screenOptions={{
+        headerShown: false,
+      }}>
+      <Stack.Screen
+        name="auth"
+        options={{
+          presentation: 'modal',
+        }}
+      />
+    </Stack>
   );
 }

@@ -36,7 +36,7 @@ export const en = {
     alreadyAccount: 'Already have an account?',
   },
   signUp: {
-    title: 'Create your account',
+    title: 'Sign up',
     subheading:
       'Continue with your socials or enter your details to create an account.',
   },
@@ -100,7 +100,7 @@ export const de: BaseTranslations = {
     alreadyAccount: 'Konto bereits vorhanden?',
   },
   signUp: {
-    title: 'Konto erstellen',
+    title: 'Registrierung',
     subheading:
       'Benutze deine Socials oder gebe deine Email ein, um ein Konto zu erstellen.',
   },

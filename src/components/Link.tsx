@@ -1,26 +1,48 @@
-import { Link as NLink, useRouter } from 'expo-router';
-import { LinkProps } from 'expo-router/build/link/Link';
+import { useRouter } from 'expo-router';
+import { LinkProps as LinkProps1 } from 'expo-router/build/link/Link';
 
 import { Text, TextProps } from './Text';
 
-type LinkProps1 = TextProps & {
+type LinkProps = {
   children: React.ReactNode;
-  href: LinkProps['href'];
-};
+} & Omit<TextProps, 'href'> &
+  (
+    | {
+        onPress: () => void;
+      }
+    | {
+        href: LinkProps1['href'];
+      }
+  );
 
-export default function Link(props: LinkProps1) {
-  const { children, href, ...rest } = props;
+export default function Link(props: LinkProps) {
+  const { children, ...rest } = props;
   const router = useRouter();
 
-  return (
-    <Text
-      variant="link"
-      {...rest}
-      onPress={() => router.push(props.href)}
-      pressStyle={{
-        opacity: 0.3,
-      }}>
-      {children}
-    </Text>
-  );
+  if ('href' in rest) {
+    const { href, ...textProps } = rest;
+    return (
+      <Text
+        variant="link"
+        {...textProps}
+        onPress={() => router.push(href)}
+        pressStyle={{
+          opacity: 0.3,
+        }}>
+        {children}
+      </Text>
+    );
+  } else {
+    return (
+      <Text
+        variant="link"
+        {...rest}
+        onPress={rest.onPress}
+        pressStyle={{
+          opacity: 0.3,
+        }}>
+        {children}
+      </Text>
+    );
+  }
 }

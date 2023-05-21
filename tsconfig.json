@@ -5,7 +5,10 @@
     "strictNullChecks": true,
     "paths": {
       "components/*": ["src/components/*"],
+      "contexts/*": ["src/contexts/*"],
+      "data/*": ["src/data/*"],
       "hooks/*": ["src/hooks/*"],
+      "styles/*": ["src/styles/*"],
       "utils/*": ["src/utils/*"],
       "src/*": ["src/*"],
     }

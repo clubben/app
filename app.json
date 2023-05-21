@@ -46,6 +46,7 @@
       "favicon": "./assets/favicon.png"
     },
     "extra": {
+      "BASE_URL": "https://aggregator.jonashiltl.workers.dev/trpc",
       "eas": {
         "projectId": "095ac817-e915-4693-a787-b93a9c070a3d"
       }
