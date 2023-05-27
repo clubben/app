@@ -4,9 +4,9 @@ import React from 'react';
 export type AuthState = 'authenticated' | 'unauthenticated' | 'skipped';
 type TAuthContext = {
   skipped: boolean;
-  setSkipped: (boolean) => void;
+  setSkipped: (s: boolean) => void;
   me: Account | null;
-  setMe: (Account) => void;
+  setMe: (a: Account | null) => void;
   meIsLoading: boolean;
   authState: AuthState;
 };

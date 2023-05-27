@@ -1,4 +1,4 @@
-import { Eye } from '@tamagui/lucide-icons';
+import { Eye, EyeOff } from '@tamagui/lucide-icons';
 import { Button } from 'components/Button';
 import GoogleLogo from 'components/GoogleLogo';
 import { Input } from 'components/Input';
@@ -11,6 +11,8 @@ import { useState } from 'react';
 
 export default function SignUp() {
   const [secure, setSecure] = useState(true);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   return (
     <>
@@ -38,7 +40,8 @@ export default function SignUp() {
         <YStack space="$md">
           <Input>
             <Input.Value
-              value="email"
+              value={email}
+              onChangeText={val => setEmail(val)}
               placeholder={i18n.t('email')}
               textContentType="emailAddress"
               keyboardType="email-address"
@@ -48,14 +51,15 @@ export default function SignUp() {
           </Input>
           <Input>
             <Input.Value
-              value="password"
+              value={password}
+              onChangeText={val => setPassword(val)}
               placeholder={i18n.t('password')}
               textContentType="password"
               secureTextEntry={secure}
               autoCorrect={false}
             />
             <Input.Button onPress={() => setSecure(prev => !prev)}>
-              <Eye />
+              {secure ? <Eye /> : <EyeOff />}
             </Input.Button>
           </Input>
         </YStack>

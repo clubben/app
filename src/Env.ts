@@ -14,10 +14,18 @@ function getExpoExtra(key: string) {
   }
 }
 
+function getEnv(key: string) {
+  const value = process.env[key];
+  if (!value) {
+    throw new Error(`${key} is missing in proccess.env.`);
+  }
+  return value;
+}
+
 export const Env = {
   BASE_URL: getExpoExtra('BASE_URL') as string,
-  /* ANDROID_FIREBASE_CLIENT_ID: getExpoExtra(
+  ANDROID_FIREBASE_CLIENT_ID: getExpoExtra(
     'ANDROID_FIREBASE_CLIENT_ID'
   ) as string,
-  IOS_FIREBASE_CLIENT_ID: getExpoExtra('IOS_FIREBASE_CLIENT_ID') as string, */
+  IOS_FIREBASE_CLIENT_ID: getExpoExtra('IOS_FIREBASE_CLIENT_ID') as string,
 };

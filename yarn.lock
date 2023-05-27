@@ -1577,28 +1577,28 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@buf/jonas_clubben.bufbuild_connect-es@npm:latest":
-  version: 0.9.0-20230521100650-a7388635af46.1
-  resolution: "@buf/jonas_clubben.bufbuild_connect-es@npm:0.9.0-20230521100650-a7388635af46.1"
+"@buf/jonas_clubben.bufbuild_connect-es@npm:^0.9.0-20230523152504-4c606ba7815f.1":
+  version: 0.9.0-20230523152504-4c606ba7815f.1
+  resolution: "@buf/jonas_clubben.bufbuild_connect-es@npm:0.9.0-20230523152504-4c606ba7815f.1"
   dependencies:
     "@buf/envoyproxy_protoc-gen-validate.bufbuild_connect-es": 0.9.0-20221025150516-6607b10f00ed.1
     "@buf/googleapis_googleapis.bufbuild_connect-es": 0.9.0-20230502210827-cc916c318597.1
-    "@buf/jonas_clubben.bufbuild_es": 1.2.0-20230521100650-a7388635af46.1
+    "@buf/jonas_clubben.bufbuild_es": 1.2.0-20230523152504-4c606ba7815f.1
   peerDependencies:
     "@bufbuild/connect": ^0.9.0
-  checksum: 5e95c228cc07f6360e7834a4ba23d1cd233ea3128ee1005b7e390dd77af8e4ae771574869d096056d9fdf180abbe2948af1ce9fc2491054cf980fa827072007e
+  checksum: 4de1ede75bb2b590d2fceb5ecc8836283acb1a7dd9cc662a8c46498e35d9f16ee9e06f137fc4cf61b9497a2dd0f16767cc4009ed45464eb63904952fd68e9528
   languageName: node
   linkType: hard
 
-"@buf/jonas_clubben.bufbuild_es@npm:1.2.0-20230521100650-a7388635af46.1, @buf/jonas_clubben.bufbuild_es@npm:latest":
-  version: 1.2.0-20230521100650-a7388635af46.1
-  resolution: "@buf/jonas_clubben.bufbuild_es@npm:1.2.0-20230521100650-a7388635af46.1"
+"@buf/jonas_clubben.bufbuild_es@npm:1.2.0-20230523152504-4c606ba7815f.1, @buf/jonas_clubben.bufbuild_es@npm:^1.2.0-20230523152504-4c606ba7815f.1":
+  version: 1.2.0-20230523152504-4c606ba7815f.1
+  resolution: "@buf/jonas_clubben.bufbuild_es@npm:1.2.0-20230523152504-4c606ba7815f.1"
   dependencies:
     "@buf/envoyproxy_protoc-gen-validate.bufbuild_es": 1.2.0-20221025150516-6607b10f00ed.1
     "@buf/googleapis_googleapis.bufbuild_es": 1.2.0-20230502210827-cc916c318597.1
   peerDependencies:
     "@bufbuild/protobuf": ^1.2.0
-  checksum: d22c1ab44cf41a1ab642597215cfc000e94213400e68ab97d7fae11bc3963d00135ed69ed4146311cd96846531f3c3dca6b0946b27a5fb75c3644adab21c3b56
+  checksum: b8fbe7a0e3b663e2dff949ce147521c33bd84ce10c278bf21718c7a207047ec58abaf1de4a35ac1b904cc8bd949b09c834a9b0778a8628bd220172b15d01e065
   languageName: node
   linkType: hard
 
@@ -4872,7 +4872,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"base64-js@npm:^1.1.2, base64-js@npm:^1.2.3, base64-js@npm:^1.3.1, base64-js@npm:^1.5.1":
+"base64-js@npm:^1.1.2, base64-js@npm:^1.2.3, base64-js@npm:^1.3.0, base64-js@npm:^1.3.1, base64-js@npm:^1.5.1":
   version: 1.5.1
   resolution: "base64-js@npm:1.5.1"
   checksum: 669632eb3745404c2f822a18fc3a0122d2f9a7a13f7fb8b5823ee19d1d2ff9ee5b52c53367176ea4ad093c332fd5ab4bd0ebae5a8e27917a4105a4cfc86b1005
@@ -5688,6 +5688,15 @@ __metadata:
   version: 1.0.1
   resolution: "commondir@npm:1.0.1"
   checksum: 59715f2fc456a73f68826285718503340b9f0dd89bfffc42749906c5cf3d4277ef11ef1cca0350d0e79204f00f1f6d83851ececc9095dc88512a697ac0b9bdcb
+  languageName: node
+  linkType: hard
+
+"compare-urls@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "compare-urls@npm:2.0.0"
+  dependencies:
+    normalize-url: ^2.0.1
+  checksum: 706a305fcbafac63e3e3dafe71283b2fbef05ed18f64636e13bf201cdca164ff16463a7004023535497828f69b822ce44c3b43fcaa0e99d8976b26b1f326595c
   languageName: node
   linkType: hard
 
@@ -7323,6 +7332,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"expo-apple-authentication@npm:~6.1.0":
+  version: 6.1.0
+  resolution: "expo-apple-authentication@npm:6.1.0"
+  peerDependencies:
+    expo: "*"
+  checksum: f55cda354a941968fd2cb226d99ae25f82362e1b2486274003415adac7fbe9a19c41309af9865b7f7d3deb98ef59cd1ec5df1e358d83480ec11c019bb86cc6ed
+  languageName: node
+  linkType: hard
+
 "expo-application@npm:~5.2.0":
   version: 5.2.0
   resolution: "expo-application@npm:5.2.0"
@@ -7347,6 +7365,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"expo-auth-session@npm:~4.1.0":
+  version: 4.1.0
+  resolution: "expo-auth-session@npm:4.1.0"
+  dependencies:
+    expo-constants: ~14.3.0
+    expo-crypto: ~12.3.0
+    expo-linking: ~4.1.0
+    expo-web-browser: ~12.2.0
+    invariant: ^2.2.4
+    qs: ^6.11.0
+  checksum: 1481b19c6ab30c1752681249af180b2d54be4ef95fe93e3c8eb1d865fe2cd74e01e7e0720dd778c45a96021e6bf1c6ab59bbe1c01d189032c7998453b2c33686
+  languageName: node
+  linkType: hard
+
 "expo-build-properties@npm:~0.7.0":
   version: 0.7.0
   resolution: "expo-build-properties@npm:0.7.0"
@@ -7368,6 +7400,17 @@ __metadata:
   peerDependencies:
     expo: "*"
   checksum: 647fda433b302780eae453a6dc58ea6da4aed42753729b04fd3ecaca277cc1979a67cfeaea2c6a60b82ca5d79f139b08b94576986264a1f13b0ef1bfc2911d01
+  languageName: node
+  linkType: hard
+
+"expo-crypto@npm:~12.3.0":
+  version: 12.3.0
+  resolution: "expo-crypto@npm:12.3.0"
+  dependencies:
+    base64-js: ^1.3.0
+  peerDependencies:
+    expo: "*"
+  checksum: 3e6486ca6eb3db6b29adc722f3e1a0a207fc485bf641e69b9e7de24f713f99047ceac34a940a88fd1f6bcb6d2ae2ab5a442b94c0bbde97ffdeedba6b1bc5586d
   languageName: node
   linkType: hard
 
@@ -7556,6 +7599,18 @@ __metadata:
   version: 1.5.0
   resolution: "expo-status-bar@npm:1.5.0"
   checksum: d5ca873c42ab742a302b2a3326fc361631e00c164aa5b0efc7da6049c604df1193c8b0785ec9f1376025f9bd3d3573fa294e50be490d5cf87877799462f8111c
+  languageName: node
+  linkType: hard
+
+"expo-web-browser@npm:~12.2.0":
+  version: 12.2.0
+  resolution: "expo-web-browser@npm:12.2.0"
+  dependencies:
+    compare-urls: ^2.0.0
+    url: ^0.11.0
+  peerDependencies:
+    expo: "*"
+  checksum: bf4083ca089deed364bd789d7801bcfea3994a2bd33ec1635e6aeaadc01f45e0ff995a9b068ac5112ed753f102f62d2a7740eb6ae0a9c4724bf3c57de0ff370b
   languageName: node
   linkType: hard
 
@@ -9290,6 +9345,13 @@ __metadata:
   version: 3.0.3
   resolution: "is-path-inside@npm:3.0.3"
   checksum: abd50f06186a052b349c15e55b182326f1936c89a78bf6c8f2b707412517c097ce04bc49a0ca221787bc44e1049f51f09a2ffb63d22899051988d3a618ba13e9
+  languageName: node
+  linkType: hard
+
+"is-plain-obj@npm:^1.0.0":
+  version: 1.1.0
+  resolution: "is-plain-obj@npm:1.1.0"
+  checksum: 0ee04807797aad50859652a7467481816cbb57e5cc97d813a7dcd8915da8195dc68c436010bf39d195226cde6a2d352f4b815f16f26b7bf486a5754290629931
   languageName: node
   linkType: hard
 
@@ -11149,6 +11211,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"normalize-url@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "normalize-url@npm:2.0.1"
+  dependencies:
+    prepend-http: ^2.0.0
+    query-string: ^5.0.1
+    sort-keys: ^2.0.0
+  checksum: 30e337ee03fc7f360c7d2b966438657fabd2628925cc58bffc893982fe4d2c59b397ae664fa2c319cd83565af73eee88906e80bc5eec91bc32b601920e770d75
+  languageName: node
+  linkType: hard
+
 "normalize-url@npm:^6.0.1":
   version: 6.1.0
   resolution: "normalize-url@npm:6.1.0"
@@ -11609,8 +11682,8 @@ __metadata:
   resolution: "party-app@workspace:."
   dependencies:
     "@babel/core": ^7.20.0
-    "@buf/jonas_clubben.bufbuild_connect-es": latest
-    "@buf/jonas_clubben.bufbuild_es": latest
+    "@buf/jonas_clubben.bufbuild_connect-es": ^0.9.0-20230523152504-4c606ba7815f.1
+    "@buf/jonas_clubben.bufbuild_es": ^1.2.0-20230523152504-4c606ba7815f.1
     "@bufbuild/connect": ^0.9.0
     "@bufbuild/connect-web": ^0.9.0
     "@bufbuild/protobuf": ^1.2.0
@@ -11641,8 +11714,11 @@ __metadata:
     eslint-config-universe: ^11.2.0
     eslint-plugin-simple-import-sort: ^10.0.0
     expo: ~49.0.0-alpha.1
+    expo-apple-authentication: ~6.1.0
+    expo-auth-session: ~4.1.0
     expo-build-properties: ~0.7.0
     expo-constants: ~14.3.0
+    expo-crypto: ~12.3.0
     expo-font: ^11.1.1
     expo-image: ^1.2.3
     expo-linking: ~4.1.0
@@ -12266,6 +12342,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prepend-http@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "prepend-http@npm:2.0.0"
+  checksum: 7694a9525405447662c1ffd352fcb41b6410c705b739b6f4e3a3e21cf5fdede8377890088e8934436b8b17ba55365a615f153960f30877bf0d0392f9e93503ea
+  languageName: node
+  linkType: hard
+
 "prettier-linter-helpers@npm:^1.0.0":
   version: 1.0.0
   resolution: "prettier-linter-helpers@npm:1.0.0"
@@ -12464,6 +12547,17 @@ __metadata:
     split-on-first: ^1.0.0
     strict-uri-encode: ^2.0.0
   checksum: 91af02dcd9cc9227a052841d5c2eecb80a0d6489d05625df506a097ef1c59037cfb5e907f39b84643cbfd535c955abec3e553d0130a7b510120c37d06e0f4346
+  languageName: node
+  linkType: hard
+
+"query-string@npm:^5.0.1":
+  version: 5.1.1
+  resolution: "query-string@npm:5.1.1"
+  dependencies:
+    decode-uri-component: ^0.2.0
+    object-assign: ^4.1.0
+    strict-uri-encode: ^1.0.0
+  checksum: 4ac760d9778d413ef5f94f030ed14b1a07a1708dd13fd3bc54f8b9ef7b425942c7577f30de0bf5a7d227ee65a9a0350dfa3a43d1d266880882fb7ce4c434a4dd
   languageName: node
   linkType: hard
 
@@ -13829,6 +13923,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"sort-keys@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "sort-keys@npm:2.0.0"
+  dependencies:
+    is-plain-obj: ^1.0.0
+  checksum: f0fd827fa9f8f866e98588d2a38c35209afbf1e9a05bb0e4ceeeb8bbf31d923c8902b0a7e0f561590ddb65e58eba6a74f74b991c85360bcc52e83a3f0d1cffd7
+  languageName: node
+  linkType: hard
+
 "source-list-map@npm:^2.0.1":
   version: 2.0.1
   resolution: "source-list-map@npm:2.0.1"
@@ -14051,6 +14154,13 @@ __metadata:
   version: 2.2.0
   resolution: "stream-buffers@npm:2.2.0"
   checksum: 4587d9e8f050d689fb38b4295e73408401b16de8edecc12026c6f4ae92956705ecfd995ae3845d7fa3ebf19502d5754df9143d91447fd881d86e518f43882c1c
+  languageName: node
+  linkType: hard
+
+"strict-uri-encode@npm:^1.0.0":
+  version: 1.1.0
+  resolution: "strict-uri-encode@npm:1.1.0"
+  checksum: 9466d371f7b36768d43f7803f26137657559e4c8b0161fb9e320efb8edba3ae22f8e99d4b0d91da023b05a13f62ec5412c3f4f764b5788fac11d1fea93720bb3
   languageName: node
   linkType: hard
 
