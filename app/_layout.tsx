@@ -1,3 +1,4 @@
+import { ConnectError } from '@bufbuild/connect';
 import {
   useFonts,
   Inter_300Light,
@@ -5,15 +6,42 @@ import {
   Inter_600SemiBold,
 } from '@expo-google-fonts/inter';
 import { TamaguiProvider } from '@tamagui/core';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import {
+  QueryCache,
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query';
+import * as Burnt from 'burnt';
 import { SplashScreen, Stack } from 'expo-router';
 import Head from 'expo-router/head';
-import { useColorScheme } from 'react-native';
+import { LogBox, useColorScheme } from 'react-native';
 import AuthProvider from 'src/contexts/auth/AuthProvider';
 import NavThemeProvider from 'src/styles/NavThemeProvider';
 import config from 'tamagui.config';
 
-const queryClient = new QueryClient({});
+LogBox.ignoreLogs([/ConnectError/]);
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: false,
+    },
+  },
+  queryCache: new QueryCache({
+    onError: (err, query) => {
+      if (
+        err instanceof ConnectError &&
+        query.state.data !== undefined &&
+        query.state.data !== null
+      ) {
+        Burnt.toast({
+          title: err.rawMessage,
+          preset: 'error',
+        });
+      }
+    },
+  }),
+});
 
 export default function RootLayout() {
   const theme = useColorScheme();
@@ -64,6 +92,7 @@ function RootNavigation() {
         name="auth"
         options={{
           presentation: 'modal',
+          gestureEnabled: false,
         }}
       />
     </Stack>

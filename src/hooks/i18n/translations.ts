@@ -2,6 +2,7 @@ export const en = {
   userName: 'User name',
   firstName: 'First name',
   lastName: 'Last name',
+  name: 'Name',
   email: 'Email',
   password: 'Password',
   title: 'Title',
@@ -49,6 +50,12 @@ export const en = {
     usernameCaption: 'Your friends add you via your username.',
     action: 'Complete Profile',
   },
+  verifyEmail: {
+    title: 'Verify your email',
+    description: 'Account activation linkt has been sent to ',
+    notArrived: "Didn't get the mail?",
+    sendAgain: 'Send it again',
+  },
   createParty: {
     action: 'Continue',
     titleStep1: 'Create your Party',
@@ -66,6 +73,7 @@ export const de: BaseTranslations = {
   userName: 'Benutzername',
   firstName: 'Vorname',
   lastName: 'Nachname',
+  name: 'Name',
   email: 'Email',
   password: 'Passwort',
   title: 'Titel',
@@ -112,6 +120,12 @@ export const de: BaseTranslations = {
     title: 'Vervollständige dein Profil',
     usernameCaption: 'Deine Freunde adden dich über deinen Benutzernamen.',
     action: 'Profil verfollständigen',
+  },
+  verifyEmail: {
+    title: 'Email verifizieren',
+    description: 'Der Link zur Kontoaktivierung wurde gesendet an ',
+    notArrived: 'Email nicht erhalten?',
+    sendAgain: 'Erneut senden',
   },
   createParty: {
     action: 'Fortfahren',

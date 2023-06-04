@@ -1,4 +1,5 @@
-import { ONE_HOUR_IN_SECONDS } from 'utils/constants';
+import dayjs from 'dayjs';
+import { ONE_HOUR_IN_MILLISECONDS } from 'utils/constants';
 
 import { globalMMKV } from '../client';
 
@@ -23,13 +24,16 @@ class KeyManager {
     }
   }
 
-  setAccessToken(token: string, expiresIn?: number | string) {
-    const expiresInNum =
-      typeof expiresIn === 'string' ? parseInt(expiresIn, 10) : expiresIn;
-    const expiresAt = Date.now() + (expiresInNum ?? ONE_HOUR_IN_SECONDS) * 1000;
+  setAccessToken(token: string, expiresIn?: number | string | Date) {
+    const unix =
+      typeof expiresIn === 'number'
+        ? expiresIn === undefined
+          ? dayjs.utc(Date.now() + ONE_HOUR_IN_MILLISECONDS).unix()
+          : expiresIn
+        : dayjs.utc(expiresIn).unix();
 
     const accessToken: AccessToken = {
-      expiresAt,
+      expiresAt: unix,
       token,
     };
     this.storage.set(ACCESS_TOKEN_KEY, JSON.stringify(accessToken));

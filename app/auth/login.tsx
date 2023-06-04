@@ -2,6 +2,7 @@ import { Eye, EyeOff } from '@tamagui/lucide-icons';
 import { Button } from 'components/Button';
 import GoogleLogo from 'components/GoogleLogo';
 import { Input } from 'components/Input';
+import { ScrollView } from 'components/ScrollView';
 import { Separator } from 'components/Separator';
 import { XStack, YStack } from 'components/Stacks';
 import { Text } from 'components/Text';
@@ -23,7 +24,7 @@ export default function LogIn() {
     <>
       <Stack.Screen options={{ title: i18n.t('logIn.title') }} />
 
-      <YStack space="$md" p="$md">
+      <ScrollView space="$md" p="$md">
         <Text>{i18n.t('logIn.subheading')}</Text>
 
         <YStack space="$md">
@@ -89,7 +90,7 @@ export default function LogIn() {
             <Button.Text>{i18n.t('auth.logIn')}</Button.Text>
           )}
         </Button>
-      </YStack>
+      </ScrollView>
     </>
   );
 }

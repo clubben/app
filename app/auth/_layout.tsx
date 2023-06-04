@@ -10,6 +10,7 @@ export default function Layout() {
   return (
     <Stack
       screenOptions={{
+        gestureEnabled: false,
         headerRight: ({ tintColor }) => (
           <Link
             onPress={() => {

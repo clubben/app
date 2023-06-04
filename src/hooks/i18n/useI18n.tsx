@@ -36,7 +36,7 @@ export const useI18n = () => {
     const translation = i18n.t(t);
 
     const row = React.useMemo(() => {
-      const nodes = [];
+      const nodes: (string | React.ReactElement)[] = [];
       let translationToParse = translation;
       if (components) {
         components.forEach(({ component: Component, props }, index) => {

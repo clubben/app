@@ -1537,68 +1537,68 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@buf/envoyproxy_protoc-gen-validate.bufbuild_connect-es@npm:0.9.0-20221025150516-6607b10f00ed.1":
-  version: 0.9.0-20221025150516-6607b10f00ed.1
-  resolution: "@buf/envoyproxy_protoc-gen-validate.bufbuild_connect-es@npm:0.9.0-20221025150516-6607b10f00ed.1"
+"@buf/bufbuild_protovalidate.bufbuild_connect-es@npm:0.9.1-20230530223247-ca37dc8895db.1":
+  version: 0.9.1-20230530223247-ca37dc8895db.1
+  resolution: "@buf/bufbuild_protovalidate.bufbuild_connect-es@npm:0.9.1-20230530223247-ca37dc8895db.1"
   dependencies:
-    "@buf/envoyproxy_protoc-gen-validate.bufbuild_es": 1.2.0-20221025150516-6607b10f00ed.1
+    "@buf/bufbuild_protovalidate.bufbuild_es": 1.2.1-20230530223247-ca37dc8895db.1
   peerDependencies:
-    "@bufbuild/connect": ^0.9.0
-  checksum: e9ef31f6cfbb3e88610a5fccd7fe5f6078cc82f10631ae25dad38297a6f96e6dd4bd45d63a16076f28aa90954b2d73ddf396b00c21721bb37906ce9d9d9496cd
+    "@bufbuild/connect": ^0.9.1
+  checksum: 09087a2b93af5ea341e6c7ffe6b7baac1fd207a2eb96062e1d6c83cd529f20678f2d403322a6afcbc749f553fd12d0bec309260da4fe1b4ec905dce6ed5e291b
   languageName: node
   linkType: hard
 
-"@buf/envoyproxy_protoc-gen-validate.bufbuild_es@npm:1.2.0-20221025150516-6607b10f00ed.1":
-  version: 1.2.0-20221025150516-6607b10f00ed.1
-  resolution: "@buf/envoyproxy_protoc-gen-validate.bufbuild_es@npm:1.2.0-20221025150516-6607b10f00ed.1"
+"@buf/bufbuild_protovalidate.bufbuild_es@npm:1.2.1-20230530223247-ca37dc8895db.1":
+  version: 1.2.1-20230530223247-ca37dc8895db.1
+  resolution: "@buf/bufbuild_protovalidate.bufbuild_es@npm:1.2.1-20230530223247-ca37dc8895db.1"
   peerDependencies:
-    "@bufbuild/protobuf": ^1.2.0
-  checksum: bf197a41b837a3b672d6c9eb45a08ee31ea0e6f2c1aa02dd489951772532ff2f6eec19a64cf3d4e87f750b1f5cbfaa76ebe451f4f8f69438aa6fa3d64bcd4a33
+    "@bufbuild/protobuf": ^1.2.1
+  checksum: 7e8c909d21483bac351838e1c1fa2ec0e0b62058db8eb5bd370ce080d5b4afcc2537919930a16f7b3dc2ed292e1dda82946804f25e2f45f1340456cd2ea33c13
   languageName: node
   linkType: hard
 
-"@buf/googleapis_googleapis.bufbuild_connect-es@npm:0.9.0-20230502210827-cc916c318597.1":
-  version: 0.9.0-20230502210827-cc916c318597.1
-  resolution: "@buf/googleapis_googleapis.bufbuild_connect-es@npm:0.9.0-20230502210827-cc916c318597.1"
+"@buf/googleapis_googleapis.bufbuild_connect-es@npm:0.9.1-20230502210827-cc916c318597.1":
+  version: 0.9.1-20230502210827-cc916c318597.1
+  resolution: "@buf/googleapis_googleapis.bufbuild_connect-es@npm:0.9.1-20230502210827-cc916c318597.1"
   dependencies:
-    "@buf/googleapis_googleapis.bufbuild_es": 1.2.0-20230502210827-cc916c318597.1
+    "@buf/googleapis_googleapis.bufbuild_es": 1.2.1-20230502210827-cc916c318597.1
   peerDependencies:
-    "@bufbuild/connect": ^0.9.0
-  checksum: adcd3707728ae7479e8cb77a49880bf7bdeff57d104e95121f62b0670594e4457139857874d10cf151f67838e529e0f3376ff23319960542f4fe1d4b6d1ef242
+    "@bufbuild/connect": ^0.9.1
+  checksum: bafca8835f6545836d2db67e996bb41c2399ce7cf661885aac009f1c59d31119343a6c28b8ef44ced64f6278615016d4d39de5c198d17c9d3b8e081438936ac8
   languageName: node
   linkType: hard
 
-"@buf/googleapis_googleapis.bufbuild_es@npm:1.2.0-20230502210827-cc916c318597.1":
-  version: 1.2.0-20230502210827-cc916c318597.1
-  resolution: "@buf/googleapis_googleapis.bufbuild_es@npm:1.2.0-20230502210827-cc916c318597.1"
+"@buf/googleapis_googleapis.bufbuild_es@npm:1.2.1-20230502210827-cc916c318597.1":
+  version: 1.2.1-20230502210827-cc916c318597.1
+  resolution: "@buf/googleapis_googleapis.bufbuild_es@npm:1.2.1-20230502210827-cc916c318597.1"
   peerDependencies:
-    "@bufbuild/protobuf": ^1.2.0
-  checksum: 890e2ffd4052b9d4f8f80b874f683b3382da16550dcea9e8ddafbcd476339f80c98e6041739b7e4a9f2b2b6e29ddf6a5d227d5eee82910eb0c1e2de234639a6d
+    "@bufbuild/protobuf": ^1.2.1
+  checksum: 707c8371a0b297ba94bcdc12637845c7f2d1a699345b49b2da0d3c1cd1b7004b66dc5143972fb2e4b5bcae0c1a34fe96b95d5eb0cb7c643e70c964952a23af09
   languageName: node
   linkType: hard
 
-"@buf/jonas_clubben.bufbuild_connect-es@npm:^0.9.0-20230523152504-4c606ba7815f.1":
-  version: 0.9.0-20230523152504-4c606ba7815f.1
-  resolution: "@buf/jonas_clubben.bufbuild_connect-es@npm:0.9.0-20230523152504-4c606ba7815f.1"
+"@buf/jonas_clubben.bufbuild_connect-es@npm:^0.9.1-20230604133157-f5410dca6312.1":
+  version: 0.9.1-20230604133157-f5410dca6312.1
+  resolution: "@buf/jonas_clubben.bufbuild_connect-es@npm:0.9.1-20230604133157-f5410dca6312.1"
   dependencies:
-    "@buf/envoyproxy_protoc-gen-validate.bufbuild_connect-es": 0.9.0-20221025150516-6607b10f00ed.1
-    "@buf/googleapis_googleapis.bufbuild_connect-es": 0.9.0-20230502210827-cc916c318597.1
-    "@buf/jonas_clubben.bufbuild_es": 1.2.0-20230523152504-4c606ba7815f.1
+    "@buf/bufbuild_protovalidate.bufbuild_connect-es": 0.9.1-20230530223247-ca37dc8895db.1
+    "@buf/googleapis_googleapis.bufbuild_connect-es": 0.9.1-20230502210827-cc916c318597.1
+    "@buf/jonas_clubben.bufbuild_es": 1.2.1-20230604133157-f5410dca6312.1
   peerDependencies:
-    "@bufbuild/connect": ^0.9.0
-  checksum: 4de1ede75bb2b590d2fceb5ecc8836283acb1a7dd9cc662a8c46498e35d9f16ee9e06f137fc4cf61b9497a2dd0f16767cc4009ed45464eb63904952fd68e9528
+    "@bufbuild/connect": ^0.9.1
+  checksum: 9add12f30a4c29cdad52b2cf317c4e99ea7bee8e758c8ee07dd5150b0388314f80688410f668a9288e4569f125427f814adbb550c883d4960f3c167e09172b43
   languageName: node
   linkType: hard
 
-"@buf/jonas_clubben.bufbuild_es@npm:1.2.0-20230523152504-4c606ba7815f.1, @buf/jonas_clubben.bufbuild_es@npm:^1.2.0-20230523152504-4c606ba7815f.1":
-  version: 1.2.0-20230523152504-4c606ba7815f.1
-  resolution: "@buf/jonas_clubben.bufbuild_es@npm:1.2.0-20230523152504-4c606ba7815f.1"
+"@buf/jonas_clubben.bufbuild_es@npm:1.2.1-20230604133157-f5410dca6312.1, @buf/jonas_clubben.bufbuild_es@npm:^1.2.1-20230604133157-f5410dca6312.1":
+  version: 1.2.1-20230604133157-f5410dca6312.1
+  resolution: "@buf/jonas_clubben.bufbuild_es@npm:1.2.1-20230604133157-f5410dca6312.1"
   dependencies:
-    "@buf/envoyproxy_protoc-gen-validate.bufbuild_es": 1.2.0-20221025150516-6607b10f00ed.1
-    "@buf/googleapis_googleapis.bufbuild_es": 1.2.0-20230502210827-cc916c318597.1
+    "@buf/bufbuild_protovalidate.bufbuild_es": 1.2.1-20230530223247-ca37dc8895db.1
+    "@buf/googleapis_googleapis.bufbuild_es": 1.2.1-20230502210827-cc916c318597.1
   peerDependencies:
-    "@bufbuild/protobuf": ^1.2.0
-  checksum: b8fbe7a0e3b663e2dff949ce147521c33bd84ce10c278bf21718c7a207047ec58abaf1de4a35ac1b904cc8bd949b09c834a9b0778a8628bd220172b15d01e065
+    "@bufbuild/protobuf": ^1.2.1
+  checksum: 6df030bebf741e47b15c7319566b22024805bdc212d677e6bd5cac689a939d82ae476752ec110c0af07701f87f6dfb46e79025098c8f62c9936b49f9da83d442
   languageName: node
   linkType: hard
 
@@ -7766,6 +7766,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fast-text-encoding@npm:^1.0.6":
+  version: 1.0.6
+  resolution: "fast-text-encoding@npm:1.0.6"
+  checksum: 9d58f694314b3283e785bf61954902536da228607ad246905e30256f9ab8331f780ac987e7222c9f5eafd04168d07e12b8054c85cedb76a2c05af0e82387a903
+  languageName: node
+  linkType: hard
+
 "fast-xml-parser@npm:^4.0.12":
   version: 4.2.2
   resolution: "fast-xml-parser@npm:4.2.2"
@@ -11682,8 +11689,8 @@ __metadata:
   resolution: "party-app@workspace:."
   dependencies:
     "@babel/core": ^7.20.0
-    "@buf/jonas_clubben.bufbuild_connect-es": ^0.9.0-20230523152504-4c606ba7815f.1
-    "@buf/jonas_clubben.bufbuild_es": ^1.2.0-20230523152504-4c606ba7815f.1
+    "@buf/jonas_clubben.bufbuild_connect-es": ^0.9.1-20230604133157-f5410dca6312.1
+    "@buf/jonas_clubben.bufbuild_es": ^1.2.1-20230604133157-f5410dca6312.1
     "@bufbuild/connect": ^0.9.0
     "@bufbuild/connect-web": ^0.9.0
     "@bufbuild/protobuf": ^1.2.0
@@ -11726,6 +11733,7 @@ __metadata:
     expo-router: ^1.7.2
     expo-splash-screen: ~0.19.0
     expo-status-bar: ~1.5.0
+    fast-text-encoding: ^1.0.6
     geohashing: ^1.1.2
     prettier: ^2.8.8
     react: 18.2.0

@@ -2,28 +2,35 @@ import { Eye, EyeOff } from '@tamagui/lucide-icons';
 import { Button } from 'components/Button';
 import GoogleLogo from 'components/GoogleLogo';
 import { Input } from 'components/Input';
+import { ScrollView } from 'components/ScrollView';
 import { Separator } from 'components/Separator';
 import { XStack, YStack } from 'components/Stacks';
 import { Text } from 'components/Text';
 import { Stack } from 'expo-router';
 import { i18n } from 'hooks/i18n';
+import { useAuth } from 'hooks/useAuth';
 import { useState } from 'react';
+import { ActivityIndicator } from 'react-native';
 
 export default function SignUp() {
+  const { signUp, signUpLoading, googleSignIn } = useAuth();
   const [secure, setSecure] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  function onSubmit() {
+    signUp({ email, password });
+  }
 
   return (
     <>
       <Stack.Screen options={{ title: i18n.t('signUp.title') }} />
 
-      <YStack space="$md" p="$md">
+      <ScrollView space="$md" p="$md">
         <Text variant="body">{i18n.t('signUp.subheading')}</Text>
 
         <YStack>
-          <Button
-            onPress={() => console.warn('Google sign in not yet implemented')}>
+          <Button onPress={googleSignIn}>
             <Button.Icon>
               <GoogleLogo height={22} width={22} />
             </Button.Icon>
@@ -64,12 +71,14 @@ export default function SignUp() {
           </Input>
         </YStack>
 
-        <Button
-          variant="accent"
-          onPress={() => console.warn('Sign up not yet implemented')}>
-          <Button.Text>{i18n.t('auth.signUp')}</Button.Text>
+        <Button variant="accent" onPress={onSubmit}>
+          {signUpLoading ? (
+            <ActivityIndicator />
+          ) : (
+            <Button.Text>{i18n.t('auth.signUp')}</Button.Text>
+          )}
         </Button>
-      </YStack>
+      </ScrollView>
     </>
   );
 }

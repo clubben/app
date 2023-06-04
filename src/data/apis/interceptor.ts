@@ -1,13 +1,12 @@
 import { AuthService } from '@buf/jonas_clubben.bufbuild_connect-es/auth/v1/auth_connect';
 import { Interceptor, createPromiseClient } from '@bufbuild/connect';
-import { createConnectTransport } from '@bufbuild/connect-web';
+import { keyManager } from 'data/local/auth/keys';
 import dayjs from 'dayjs';
 import { Env } from 'src/Env';
-import { FIVE_MINUTES_IN_MILLISECONDS } from 'utils/constants';
 
-import { keyManager } from '../local/auth/keys';
+import { createXHRGrpcWebTransport } from './custom_transport';
 
-const transportWithoutInterceptor = createConnectTransport({
+const transportWithoutInterceptor = createXHRGrpcWebTransport({
   baseUrl: Env.BASE_URL,
 });
 
@@ -15,14 +14,15 @@ const client = createPromiseClient(AuthService, transportWithoutInterceptor);
 
 export const authInterceptor: Interceptor = next => async req => {
   let accessToken = keyManager.getAccessToken();
-  if (accessToken) {
-    console.log('Got stored accessToken');
-  }
 
   if (
     !accessToken ||
     (accessToken &&
-      Date.now() > accessToken.expiresAt - FIVE_MINUTES_IN_MILLISECONDS)
+      dayjs
+        .unix(accessToken.expiresAt)
+        .utc()
+        .subtract(10, 'minute')
+        .isBefore(dayjs.utc()))
   ) {
     const refreshToken = keyManager.getRefreshToken();
     if (refreshToken) {
@@ -31,21 +31,24 @@ export const authInterceptor: Interceptor = next => async req => {
     }
   }
 
-  req.header.append('Authorization', `Bearer ${accessToken}`);
+  if (accessToken) {
+    req.header.set('Authorization', `Bearer ${accessToken?.token}`);
+  }
 
   return await next(req);
 };
 
 const refreshAccessToken = async (refreshToken: string) => {
-  const res = await client.refreshAccessToken({
-    refreshToken,
-  });
+  try {
+    const res = await client.refreshAccessToken({
+      refreshToken,
+    });
 
-  const unix = res.accessTokenExpiration
-    ? dayjs(res.accessTokenExpiration.toDate()).unix()
-    : undefined;
-
-  keyManager.setAccessToken(res.accessToken, unix);
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  return keyManager.getAccessToken()!;
+    keyManager.setAccessToken(
+      res.accessToken,
+      res.accessTokenExpiration?.toDate()
+    );
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    return keyManager.getAccessToken()!;
+  } catch (_) {}
 };

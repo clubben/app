@@ -27,5 +27,5 @@ export const Env = {
   ANDROID_FIREBASE_CLIENT_ID: getExpoExtra(
     'ANDROID_FIREBASE_CLIENT_ID'
   ) as string,
-  IOS_FIREBASE_CLIENT_ID: getExpoExtra('IOS_FIREBASE_CLIENT_ID') as string,
+  IOS_OAUTH_CLIENT_ID: getExpoExtra('IOS_OAUTH_CLIENT_ID') as string,
 };

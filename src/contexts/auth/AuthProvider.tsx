@@ -19,7 +19,6 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const { data: me, isLoading: meIsLoading } = useQuery({
     queryKey: ME_QUERY_KEY,
     queryFn: authClient.me,
-    initialData: null,
   });
 
   function setSkipped(value: boolean) {
@@ -39,16 +38,22 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     if (authState === 'unauthenticated' && !meIsLoading) {
-      router.push('/auth');
+      if (me && !me.emailVerified) {
+        router.push('/auth/verify-email');
+      } else {
+        router.push('/auth');
+      }
+    } else if (me && !me.profile && !meIsLoading) {
+      router.push('/auth/complete-profile');
     }
-  }, [authState, meIsLoading]);
+  }, [me, authState, meIsLoading]);
 
   return (
     <AuthContext.Provider
       value={{
         setSkipped,
         skipped,
-        me,
+        me: me ?? null,
         setMe,
         meIsLoading,
         authState,

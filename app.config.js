@@ -45,7 +45,7 @@ module.exports = {
       favicon: './assets/favicon.png',
     },
     extra: {
-      BASE_URL: 'https://aggregator.jonashiltl.workers.dev/trpc',
+      BASE_URL: 'http://192.168.0.101:4000',
       ANDROID_FIREBASE_CLIENT_ID: process.env.ANDROID_FIREBASE_CLIENT_ID,
       IOS_FIREBASE_CLIENT_ID: process.env.IOS_FIREBASE_CLIENT_ID,
       eas: {
