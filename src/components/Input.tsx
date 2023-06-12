@@ -11,6 +11,8 @@ import { getSize } from '@tamagui/get-token';
 import { cloneElement, useContext } from 'react';
 import { TextInput } from 'react-native';
 
+import { Text } from './Text';
+
 setupReactNative({
   TextInput,
 });
@@ -18,6 +20,7 @@ setupReactNative({
 export const InputContext = createStyledContext({
   size: '$md' as SizeTokens,
   multiline: false,
+  error: undefined as string | undefined,
 });
 
 const InputFrame = styled(Stack, {
@@ -28,6 +31,7 @@ const InputFrame = styled(Stack, {
   focusable: true,
   flexDirection: 'row',
   alignItems: 'center',
+  position: 'relative',
 
   // this fixes a flex bug where it overflows container
   minWidth: 0,
@@ -54,11 +58,19 @@ const InputFrame = styled(Stack, {
         height: undefined,
       },
     },
+
+    error: {
+      ':string': error => ({
+        position: 'relative',
+        mb: 18,
+      }),
+    },
   } as const,
 
   defaultVariants: {
     size: '$md',
     multiline: false,
+    error: undefined,
   },
 });
 
@@ -102,9 +114,19 @@ const InputButton = (props: {
     </Stack>
   );
 };
+
+const InputError = () => {
+  const context = useContext(InputContext);
+  return (
+    <Text variant="caption" col="$textError" position="absolute" b={-18}>
+      {context.error}
+    </Text>
+  );
+};
 export const Input = withStaticProperties(InputFrame, {
   Props: InputContext.Provider,
   Value: InputValue,
   Icon: InputIcon,
   Button: InputButton,
+  Error: InputError,
 });
