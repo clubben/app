@@ -61,9 +61,22 @@ export const en = {
     titleStep1: 'Create your Party',
     titleStep2: 'Choose location',
     minAgeOpt: '[[minAge]] <0>([[optional]])</0>',
+    isPublic: {
+      title: 'Public Party',
+      caption: 'If enabled, your party can be found by everyone',
+    },
+    errTitleRequired: 'Title is required',
+    errStreetAddressRequired: 'Street address is required',
+    errZIPRequired: 'ZIP is required',
+    errStateRequired: 'State is required',
+    errCountryRequired: 'Country is required',
   },
   account: {
+    title: 'Account',
     friends: 'Friends',
+  },
+  map: {
+    titel: 'Map',
   },
 };
 
@@ -79,7 +92,7 @@ export const de: BaseTranslations = {
   title: 'Titel',
   description: 'Beschreibung',
   descriptionOpt: 'Beschreibung ([[optional]])',
-  music: 'Musik [[optional]]',
+  music: 'Musik <0>([[optional]])</0>',
   entryDate: 'Eintrittsdatum',
   location: 'Standort',
   minAge: 'Mindestalter',
@@ -132,8 +145,21 @@ export const de: BaseTranslations = {
     titleStep1: 'Erstelle deine Party',
     titleStep2: 'Wähle den Standort',
     minAgeOpt: '[[minAge]] <0>([[optional]])</0>',
+    isPublic: {
+      title: 'Öffentliche Party',
+      caption: 'Wenn aktiviert, kann jeder deine Party finden',
+    },
+    errTitleRequired: 'Titel ist erforderlich',
+    errStreetAddressRequired: 'Addresse ist erforderlich',
+    errZIPRequired: 'ZIP ist erforderlich',
+    errStateRequired: 'Bundesland ist erforderlich',
+    errCountryRequired: 'Land ist erforderlich',
   },
   account: {
+    title: 'Account',
     friends: 'Freunde',
+  },
+  map: {
+    titel: 'Karte',
   },
 };

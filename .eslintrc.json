@@ -18,6 +18,9 @@
       }
     }
   ],
+  "rules": {
+    "node/handle-callback-err": "off"
+  },
   "ignorePatterns": [
     "node_modules"
   ]

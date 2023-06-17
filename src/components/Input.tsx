@@ -55,7 +55,9 @@ const InputFrame = styled(Stack, {
 
     multiline: {
       true: {
-        height: undefined,
+        minHeight: 70,
+        maxHeight: 120,
+        //height: undefined,
       },
     },
 
@@ -78,10 +80,11 @@ const InputValue = styled(TextInput, {
   name: 'Input',
   context: InputContext,
   f: 1,
-  color: '$textPrimary',
+  height: '100%',
   fow: '500',
   fontFamily: '$body',
   col: '$textPrimary',
+  placeholderTextColor: '$textPlaceholder',
   fontSize: 14,
   jc: 'center',
 });

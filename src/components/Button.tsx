@@ -106,11 +106,9 @@ const ButtonIcon = (props: { children: any }) => {
   const smaller = getSize(size, {
     shift: -2,
   });
-  const theme = useTheme();
 
   return cloneElement(props.children, {
     size: smaller.val,
-    color: theme.iconPrimary.get(),
   });
 };
 

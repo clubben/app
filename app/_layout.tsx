@@ -7,6 +7,7 @@ import {
 } from '@expo-google-fonts/inter';
 import { TamaguiProvider } from '@tamagui/core';
 import {
+  MutationCache,
   QueryCache,
   QueryClient,
   QueryClientProvider,
@@ -34,6 +35,16 @@ const queryClient = new QueryClient({
         query.state.data !== undefined &&
         query.state.data !== null
       ) {
+        Burnt.toast({
+          title: err.rawMessage,
+          preset: 'error',
+        });
+      }
+    },
+  }),
+  mutationCache: new MutationCache({
+    onError: (err, variables) => {
+      if (err instanceof ConnectError) {
         Burnt.toast({
           title: err.rawMessage,
           preset: 'error',

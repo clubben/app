@@ -20,7 +20,6 @@ export default function CompleteProfile() {
 
   async function onSubmit() {
     const profile = await profileClient.createProfile({
-      id: me?.id,
       username,
       name,
       avatar,

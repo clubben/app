@@ -1,21 +1,19 @@
+import { useTheme } from '@tamagui/core';
 import { Settings } from '@tamagui/lucide-icons';
 import { Button } from 'components/Button';
 import FriendList from 'components/FriendList';
 import ProfileDisplay from 'components/ProfileDisplay';
 import { ScrollView } from 'components/ScrollView';
-import { Separator } from 'components/Separator';
-import { XStack, YStack } from 'components/Stacks';
+import { YStack } from 'components/Stacks';
 import { Text } from 'components/Text';
+import { Stack } from 'expo-router';
 import Head from 'expo-router/head';
 import { i18n } from 'hooks/i18n';
 import { useAuth } from 'hooks/useAuth';
-import {
-  SafeAreaView,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function Account() {
-  const { top } = useSafeAreaInsets();
+  const theme = useTheme();
   const { me } = useAuth();
 
   if (!me) {
@@ -40,18 +38,24 @@ export default function Account() {
         <title>Account</title>
       </Head>
 
-      <ScrollView space="$md" stickyHeaderIndices={[0]}>
-        <YStack pt={top} space="$md" bc="$backgroundPrimary">
-          <XStack mx="$m" jc="space-between" ai="center">
-            <ProfileDisplay size="$sm" profile={me.profile} />
+      <Stack.Screen
+        options={{
+          headerTitle: i18n.t('account.title'),
+          headerStyle: {
+            backgroundColor: theme.backgroundPrimary.val,
+          },
+          headerRight: () => (
             <Button variant="ghost">
               <Button.Icon>
                 <Settings />
               </Button.Icon>
             </Button>
-          </XStack>
-          <Separator />
-        </YStack>
+          ),
+        }}
+      />
+
+      <ScrollView space="$md" pt="$md">
+        <ProfileDisplay mx="$md" size="$md" profile={me.profile} />
         <YStack ml="$m">
           <Text px="$md" variant="h2">
             {i18n.t('account.friends')}

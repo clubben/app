@@ -47,7 +47,6 @@ export function useAuth() {
   useEffect(() => {
     if (response?.type === 'success' && response.authentication?.idToken) {
       const clubbenSignIn = async (googleIdToken: string) => {
-        console.log(googleIdToken);
         const { account, tokens } = await authClient.googleSignIn({
           idToken: googleIdToken,
         });

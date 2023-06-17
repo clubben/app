@@ -1,5 +1,4 @@
 import { Button } from 'components/Button';
-import Link from 'components/Link';
 import { YStack } from 'components/Stacks';
 import { Text } from 'components/Text';
 import { useAuth } from 'hooks/useAuth';
@@ -12,7 +11,6 @@ export default function Home() {
   return (
     <YStack mt={top}>
       <Text>Home</Text>
-      <Link href={{ pathname: '/auth' }}>Auth</Link>
       <Button onPress={logOut}>
         <Button.Text>Log out</Button.Text>
       </Button>

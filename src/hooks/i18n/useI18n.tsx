@@ -45,12 +45,14 @@ export const useI18n = () => {
             translationToParse.split(componentRegExp);
           translationToParse = restText;
 
-          nodes.push(
-            beforeText,
-            <Component key={index} {...props}>
-              {componentText}
-            </Component>
-          );
+          if (beforeText && componentText) {
+            nodes.push(
+              beforeText,
+              <Component key={index} {...props}>
+                {componentText}
+              </Component>
+            );
+          }
         });
         nodes.push(translationToParse);
         return nodes;

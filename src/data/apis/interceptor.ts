@@ -27,7 +27,6 @@ export const authInterceptor: Interceptor = next => async req => {
     const refreshToken = keyManager.getRefreshToken();
     if (refreshToken) {
       accessToken = await refreshAccessToken(refreshToken);
-      console.log('refreshed access token');
     }
   }
 
@@ -48,7 +47,8 @@ const refreshAccessToken = async (refreshToken: string) => {
       res.accessToken,
       res.accessTokenExpiration?.toDate()
     );
+    console.log('refreshed access token');
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     return keyManager.getAccessToken()!;
-  } catch (_) {}
+  } catch (e) {}
 };
