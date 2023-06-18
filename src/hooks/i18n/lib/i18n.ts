@@ -101,4 +101,8 @@ export class I18n<T extends Dict<unknown>> {
   setLocale(locale: Locale) {
     this.locale = locale;
   }
+
+  getLocale(): Locale {
+    return this.locale;
+  }
 }

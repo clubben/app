@@ -3555,6 +3555,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@turf/distance@npm:^6.5.0":
+  version: 6.5.0
+  resolution: "@turf/distance@npm:6.5.0"
+  dependencies:
+    "@turf/helpers": ^6.5.0
+    "@turf/invariant": ^6.5.0
+  checksum: f311e19a5d489a11e2033f218723f6c2fae207cb03fbdd5dc64a44724d36851f5bb44d07ae31d479532db5f1df019845e19e2117c1948d9e832a6769f6bf0448
+  languageName: node
+  linkType: hard
+
 "@turf/helpers@npm:^6.5.0":
   version: 6.5.0
   resolution: "@turf/helpers@npm:6.5.0"
@@ -11833,6 +11843,7 @@ __metadata:
     "@tanstack/react-query": ^4.29.7
     "@turf/area": ^6.5.0
     "@turf/bbox-polygon": ^6.5.0
+    "@turf/distance": ^6.5.0
     "@turf/intersect": ^6.5.0
     "@types/lodash.debounce": ^4.0.7
     "@types/mapbox__sphericalmercator": ^1.2.0

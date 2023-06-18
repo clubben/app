@@ -69,6 +69,7 @@ export const useI18n = () => {
     t: i18n.t.bind(i18n),
     date: i18n.date.bind(i18n),
     dayjs: i18n.dayjs.bind(i18n),
-    setLocale: i18n.setLocale,
+    setLocale: i18n.setLocale.bind(i18n),
+    getLocale: i18n.getLocale.bind(i18n),
   };
 };
