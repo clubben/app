@@ -1,4 +1,7 @@
-import { Party } from '@buf/jonas_clubben.bufbuild_es/party/v1/party_pb';
+import {
+  GetPartiesByGeohashesResponse,
+  Party,
+} from '@buf/jonas_clubben.bufbuild_es/party/v1/party_pb';
 import {
   BottomSheetBackgroundProps,
   BottomSheetHandleProps,
@@ -6,6 +9,7 @@ import {
   BottomSheetModalProvider,
 } from '@gorhom/bottom-sheet';
 import { Stack } from '@tamagui/core';
+import { useInfiniteQuery } from '@tanstack/react-query';
 import PartyBottomSheetDetails from 'components/Map/PartyBottomSheetDetails';
 import PartyMarker from 'components/Map/PartyMarker';
 import { partyClient } from 'data/apis/clients';
@@ -48,10 +52,21 @@ export default function Map() {
 
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
   const mapRef = createRef<MapView>();
-  const [parties, setParties] = useState<Party[]>([]);
   const [selectedParty, setSelectedParty] = useState<Party | undefined>(
     undefined
   );
+
+  const { fetchNextPage, data } = useInfiniteQuery({
+    queryKey: ['partiesByHashes'],
+    queryFn: ({ pageParam = [] }) => {
+      if (pageParam.length === 0) {
+        return new GetPartiesByGeohashesResponse({ parties: [] });
+      } else {
+        return partyClient.getPartiesByGeohashes({ geohashes: pageParam });
+      }
+    },
+    staleTime: Infinity,
+  });
 
   const initialRegion = location
     ? {
@@ -81,17 +96,7 @@ export default function Map() {
     if (ZOOM_LEVEL.DISTRICT < currentZoom) {
       const bbox = regionToBBox(reg, { height, width });
       const hashes = getHashesWithinBbox(bbox, currentZoom);
-      const data = await partyClient.getPartiesByGeohashes({
-        geohashes: hashes,
-      });
-
-      setParties(previous => {
-        const filteredData = data.parties.filter(
-          p => !previous.some(i => i.id === p.id)
-        );
-
-        return [...previous, ...filteredData];
-      });
+      fetchNextPage({ pageParam: hashes });
     }
   };
 
@@ -153,15 +158,17 @@ export default function Map() {
           onLongPress={onMapLongPress}
           userInterfaceStyle={theme ?? undefined}>
           {zoom &&
-            parties.map(p => (
-              <PartyMarker
-                key={p.id}
-                isShown={ZOOM_LEVEL.DISTRICT < zoom}
-                party={p}
-                isSelected={p.id === selectedParty?.id}
-                onPress={onPartyPress}
-              />
-            ))}
+            data?.pages.map(page =>
+              page.parties.map(p => (
+                <PartyMarker
+                  key={p.id}
+                  isShown={ZOOM_LEVEL.DISTRICT < zoom}
+                  party={p}
+                  isSelected={p.id === selectedParty?.id}
+                  onPress={onPartyPress}
+                />
+              ))
+            )}
         </MapView>
         <BottomSheetModal
           ref={bottomSheetModalRef}

@@ -3768,6 +3768,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/lodash.debounce@npm:^4.0.7":
+  version: 4.0.7
+  resolution: "@types/lodash.debounce@npm:4.0.7"
+  dependencies:
+    "@types/lodash": "*"
+  checksum: e873b2d77f89010876baba3437ef826b17221b98948e00b5590828334a481dea1c8f9d28543210e564adc53199584f42c3cb171f8b6c3614fefc0b4e0888679c
+  languageName: node
+  linkType: hard
+
+"@types/lodash@npm:*":
+  version: 4.14.195
+  resolution: "@types/lodash@npm:4.14.195"
+  checksum: 39b75ca635b3fa943d17d3d3aabc750babe4c8212485a4df166fe0516e39288e14b0c60afc6e21913cc0e5a84734633c71e617e2bd14eaa1cf51b8d7799c432e
+  languageName: node
+  linkType: hard
+
 "@types/mapbox__sphericalmercator@npm:^1.2.0":
   version: 1.2.0
   resolution: "@types/mapbox__sphericalmercator@npm:1.2.0"
@@ -11818,6 +11834,7 @@ __metadata:
     "@turf/area": ^6.5.0
     "@turf/bbox-polygon": ^6.5.0
     "@turf/intersect": ^6.5.0
+    "@types/lodash.debounce": ^4.0.7
     "@types/mapbox__sphericalmercator": ^1.2.0
     "@types/react": ~18.0.14
     "@typescript-eslint/eslint-plugin": ^5.59.6
