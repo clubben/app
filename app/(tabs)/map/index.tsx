@@ -210,7 +210,7 @@ const BottomSheetBackground = ({ style }: BottomSheetBackgroundProps) => {
 const BottomSheetHandle = (_: BottomSheetHandleProps) => {
   return (
     <Stack ai="center" jc="center" bc="transparent" my="$md">
-      <Stack bc="$backgroundOverlayPrimary" height={5} width={50} />
+      <Stack bc="$backgroundOverlayPrimary" br={2} height={5} width={50} />
     </Stack>
   );
 };
