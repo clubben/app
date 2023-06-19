@@ -54,7 +54,7 @@ const CollapsibleParagraph = ({ children }: CollapsibleParagraphProps) => {
           <LinearGradient
             colors={[
               theme === 'light' ? 'rgba(255,255,255,0)' : 'transparent',
-              '$background-page',
+              '$backgroundPrimary',
             ]}
             position="absolute"
             top={0}
