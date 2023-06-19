@@ -15,6 +15,7 @@ export const en = {
   optional: 'optional',
   readMore: 'Read more',
   readLess: 'Read less',
+  parties: 'Parties',
   auth: {
     logOut: 'Log out',
     logIn: 'Log in',
@@ -99,6 +100,7 @@ export const de: BaseTranslations = {
   optional: 'optional',
   readMore: 'Mehr lesen',
   readLess: 'Weniger lesen',
+  parties: 'Parties',
   auth: {
     logOut: 'Ausloggen',
     logIn: 'Einloggen',

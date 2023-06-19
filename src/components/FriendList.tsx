@@ -12,31 +12,25 @@ interface FriendListProps {
 }
 
 const FriendList = ({ userId }: FriendListProps) => {
-  const { data, isLoading } = useFriends({
+  const { data } = useFriends({
     userID: userId,
     accepted: true,
     limit: 10,
   });
-
-  if (isLoading) {
-    return <Text>Loading</Text>;
-  }
 
   return (
     <FlashList
       data={data?.friends ?? []}
       horizontal
       estimatedItemSize={100}
-      renderItem={({ item }) => {
-        return (
-          <YStack jc="center" ai="center" px="$sm">
-            <Avatar>
-              <Avatar.Image source={item.profile?.avatar} />
-            </Avatar>
-            <Text variant="caption">{item.profile?.username}</Text>
-          </YStack>
-        );
-      }}
+      renderItem={({ item }) => (
+        <YStack jc="center" ai="center" px="$sm">
+          <Avatar>
+            <Avatar.Image source={item.profile?.avatar} />
+          </Avatar>
+          <Text variant="caption">{item.profile?.username}</Text>
+        </YStack>
+      )}
       ListHeaderComponent={
         <Button ml="$md">
           <Button.Icon>

@@ -1,6 +1,10 @@
-import { useTheme } from '@tamagui/core';
+import {
+  RadiusTokens,
+  Stack,
+  ThemeValueFallback,
+  useTheme,
+} from '@tamagui/core';
 import { useEffect } from 'react';
-import { View } from 'react-native';
 import Animated, {
   Easing,
   useAnimatedStyle,
@@ -10,14 +14,13 @@ import Animated, {
 } from 'react-native-reanimated';
 
 export type SkeletonProps = {
-  width: number;
-  height: number;
-  borderRadius: number;
+  width?: string | number;
+  height?: string | number;
+  borderRadius?: ThemeValueFallback | RadiusTokens;
 };
 
 export default function Skeleton(props: SkeletonProps) {
   const fadeAnimation = useSharedValue(0.3);
-  const theme = useTheme();
 
   const animatedStyle = useAnimatedStyle(() => {
     return {
@@ -38,13 +41,11 @@ export default function Skeleton(props: SkeletonProps) {
 
   return (
     <Animated.View style={animatedStyle}>
-      <View
-        style={{
-          backgroundColor: theme.backgroundOverlayPrimary.val,
-          width: props.width,
-          height: props.height,
-          borderRadius: props.borderRadius,
-        }}
+      <Stack
+        bc="$backgroundOverlayPrimary"
+        width={props.width}
+        height={props.height}
+        borderRadius={props.borderRadius}
       />
     </Animated.View>
   );
