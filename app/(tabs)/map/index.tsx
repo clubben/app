@@ -1,7 +1,4 @@
-import {
-  GetPartiesByGeohashesResponse,
-  Party,
-} from '@buf/jonas_clubben.bufbuild_es/party/v1/party_pb';
+import { Party } from '@buf/jonas_clubben.bufbuild_es/party/v1/party_pb';
 import {
   BottomSheetBackgroundProps,
   BottomSheetHandleProps,
@@ -9,7 +6,6 @@ import {
   BottomSheetModalProvider,
 } from '@gorhom/bottom-sheet';
 import { Stack } from '@tamagui/core';
-import { useInfiniteQuery } from '@tanstack/react-query';
 import PartyBottomSheetDetails from 'components/Map/PartyBottomSheetDetails';
 import PartyMarker from 'components/Map/PartyMarker';
 import { partyClient } from 'data/apis/clients';
@@ -55,18 +51,7 @@ export default function Map() {
   const [selectedParty, setSelectedParty] = useState<Party | undefined>(
     undefined
   );
-
-  const { fetchNextPage, data } = useInfiniteQuery({
-    queryKey: ['partiesByHashes'],
-    queryFn: ({ pageParam = [] }) => {
-      if (pageParam.length === 0) {
-        return new GetPartiesByGeohashesResponse({ parties: [] });
-      } else {
-        return partyClient.getPartiesByGeohashes({ geohashes: pageParam });
-      }
-    },
-    staleTime: Infinity,
-  });
+  const [parties, setParties] = useState<Party[]>([]);
 
   const initialRegion = location
     ? {
@@ -90,15 +75,28 @@ export default function Map() {
     [width]
   );
 
-  const onRegionChangeComplete = async (reg: Region) => {
-    console.log('Region changed');
+  async function fetchViewableParties(reg: Region) {
     const currentZoom = getZoomLevelFromRegion(reg, width);
     if (ZOOM_LEVEL.DISTRICT < currentZoom) {
       const bbox = regionToBBox(reg, { height, width });
       const hashes = getHashesWithinBbox(bbox, currentZoom);
-      fetchNextPage({ pageParam: hashes });
+      if (hashes && hashes.length > 0) {
+        const res = await partyClient.getPartiesByGeohashes({
+          geohashes: hashes,
+        });
+        setParties(old => {
+          const newParties = [...old];
+          for (let i = 0; i < res.parties.length; i++) {
+            const idx = newParties.findIndex(v => v.id === res.parties[i].id);
+            if (idx === -1) {
+              newParties.push(res.parties[i]);
+            }
+          }
+          return newParties;
+        });
+      }
     }
-  };
+  }
 
   const onMapLongPress = (event: LongPressEvent) => {
     if (authState === 'authenticated') {
@@ -136,6 +134,13 @@ export default function Map() {
     }
   }, [selectedParty, mapRef]);
 
+  useEffect(() => {
+    // TODO: init with own parties and friends parties
+    if (initialRegion) {
+      fetchViewableParties(initialRegion);
+    }
+  }, []);
+
   return (
     <>
       <Head>
@@ -153,22 +158,20 @@ export default function Map() {
           rotateEnabled={false}
           showsPointsOfInterest={false}
           initialRegion={initialRegion}
-          onRegionChangeComplete={onRegionChangeComplete}
+          onRegionChangeComplete={fetchViewableParties}
           onRegionChange={debouncedSetZoom}
           onLongPress={onMapLongPress}
           userInterfaceStyle={theme ?? undefined}>
           {zoom &&
-            data?.pages.map(page =>
-              page.parties.map(p => (
-                <PartyMarker
-                  key={p.id}
-                  isShown={ZOOM_LEVEL.DISTRICT < zoom}
-                  party={p}
-                  isSelected={p.id === selectedParty?.id}
-                  onPress={onPartyPress}
-                />
-              ))
-            )}
+            parties.map(p => (
+              <PartyMarker
+                key={p.id}
+                isShown={ZOOM_LEVEL.DISTRICT < zoom}
+                party={p}
+                isSelected={p.id === selectedParty?.id}
+                onPress={onPartyPress}
+              />
+            ))}
         </MapView>
         <BottomSheetModal
           ref={bottomSheetModalRef}
