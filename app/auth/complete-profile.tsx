@@ -7,7 +7,6 @@ import { YStack } from 'components/Stacks';
 import { Text } from 'components/Text';
 import { profileClient } from 'data/apis/clients';
 import { Stack } from 'expo-router';
-import Head from 'expo-router/head';
 import { i18n } from 'hooks/i18n';
 import { useAuth } from 'hooks/useAuth';
 import { useState } from 'react';
@@ -28,9 +27,6 @@ export default function CompleteProfile() {
 
   return (
     <>
-      <Head>
-        <title>Complete Profile</title>
-      </Head>
       <Stack.Screen
         options={{
           title: i18n.t('completeProfile.title'),

@@ -10,7 +10,6 @@ import PartyBottomSheetDetails from 'components/Map/PartyBottomSheetDetails';
 import PartyMarker from 'components/Map/PartyMarker';
 import { partyClient } from 'data/apis/clients';
 import { Stack as ExpoStack, useRouter } from 'expo-router';
-import Head from 'expo-router/head';
 import { i18n } from 'hooks/i18n';
 import { useAuth } from 'hooks/useAuth';
 import { useLocation } from 'hooks/useLocation';
@@ -143,10 +142,6 @@ export default function Map() {
 
   return (
     <>
-      <Head>
-        <title>Map</title>
-      </Head>
-
       <ExpoStack.Screen
         options={{ title: i18n.t('map.titel'), headerShown: false }}
       />

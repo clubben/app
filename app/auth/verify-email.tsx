@@ -6,7 +6,6 @@ import { XStack } from 'components/Stacks';
 import { Text } from 'components/Text';
 import { authClient } from 'data/apis/clients';
 import { Stack } from 'expo-router';
-import Head from 'expo-router/head';
 import { i18n } from 'hooks/i18n';
 import { useAuth } from 'hooks/useAuth';
 
@@ -15,9 +14,6 @@ export default function VerifyEmail() {
 
   return (
     <>
-      <Head>
-        <title>Complete Profile</title>
-      </Head>
       <Stack.Screen
         options={{
           title: 'Verify your email',

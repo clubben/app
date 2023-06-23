@@ -21,7 +21,6 @@ import {
   useLocalSearchParams,
   useRouter,
 } from 'expo-router';
-import Head from 'expo-router/head';
 import { i18n, useI18n } from 'hooks/i18n';
 import { Form, SetFormAction, useForm } from 'hooks/useForm';
 import { useReverseGeocoding } from 'hooks/useReverseGeodings';
@@ -199,10 +198,6 @@ export default function CreateParty() {
 
   return (
     <>
-      <Head>
-        <title>Create Party</title>
-      </Head>
-
       <ExpoStack.Screen
         options={{
           headerTitle: i18n.t(

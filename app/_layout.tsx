@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import { ConnectError } from '@bufbuild/connect';
 import {
   useFonts,

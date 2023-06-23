@@ -29,6 +29,12 @@ module.exports = {
           },
         },
       ],
+      [
+        'expo-camera',
+        {
+          cameraPermission: 'Allow Clubben to access your camera.',
+        },
+      ],
     ],
     ios: {
       bundleIdentifier: 'com.jonashiltl.clubben',

@@ -51,10 +51,6 @@ export default function Account() {
 
   return (
     <>
-      <Head>
-        <title>Account</title>
-      </Head>
-
       <ExpoStack.Screen
         options={{
           headerTitle: i18n.t('account.title'),

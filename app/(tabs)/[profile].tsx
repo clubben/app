@@ -1,17 +1,19 @@
-import { Stack, useLocalSearchParams } from 'expo-router';
-import Head from 'expo-router/head';
+import { Stack } from '@tamagui/core';
+import { Stack as ExpoStack, useLocalSearchParams } from 'expo-router';
 import { Text } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function Profile() {
   const { profile } = useLocalSearchParams<{ profile: string }>();
+  const { top } = useSafeAreaInsets();
 
   return (
     <>
-      <Head>
-        <title>Profile</title>
-      </Head>
-      <Stack.Screen options={{ title: 'Profile' }} />
-      <Text>{profile}</Text>
+      <ExpoStack.Screen options={{ title: 'Profile' }} />
+      <Stack mt={top}>
+        <Text>Profile Page</Text>
+        <Text>{profile}</Text>
+      </Stack>
     </>
   );
 }
