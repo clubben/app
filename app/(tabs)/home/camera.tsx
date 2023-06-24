@@ -67,6 +67,21 @@ export default function Camera() {
     );
   }
 
+  function startRecording() {
+    setIsRecording(prev => {
+      const newIsRecording = !prev;
+      if (newIsRecording) {
+        playPercent.value = withTiming(1, {
+          duration: 10 * 1000,
+          easing: Easing.linear,
+        });
+      } else {
+        playPercent.value = 0;
+      }
+      return newIsRecording;
+    });
+  }
+
   const pinchGesture = useMemo(
     () =>
       Gesture.Pinch()
@@ -162,13 +177,7 @@ export default function Camera() {
             position="absolute"
             bottom={bottom}
             als="center"
-            onPress={() => {
-              setIsRecording(prev => !prev);
-              playPercent.value = withTiming(1, {
-                duration: 10 * 1000,
-                easing: Easing.linear,
-              });
-            }}
+            onPress={startRecording}
           />
         </Stack>
       </Theme>
