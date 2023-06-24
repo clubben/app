@@ -1,19 +1,23 @@
-import { Stack, StackProps, View, getTokens } from '@tamagui/core';
+import { Stack, StackProps, Theme, View, getTokens } from '@tamagui/core';
 import { SwitchCamera, Zap, ZapOff, X } from '@tamagui/lucide-icons';
 import { Button } from 'components/Button';
+import CircularProgress from 'components/CircularProgress';
 import { YStack } from 'components/Stacks';
 import { globalMMKV } from 'data/local/client';
 import { BlurView } from 'expo-blur';
 import { Camera as ExpoCamera, CameraType, FlashMode } from 'expo-camera';
 import { Stack as ExpoStack, useRouter } from 'expo-router';
 import { useMemo, useState } from 'react';
-import { useColorScheme } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, {
+  Easing,
   Extrapolate,
+  SharedValue,
   interpolate,
   useAnimatedStyle,
+  useSharedValue,
   withSpring,
+  withTiming,
 } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -46,6 +50,7 @@ export default function Camera() {
   const [flashMode, setFlashMode] = useState(FlashMode.off);
   const [isRecording, setIsRecording] = useState(false);
   const [zoom, setZoom] = useState(START_ZOOM);
+  const playPercent = useSharedValue(0);
 
   function toggleCameraType() {
     setCameraType(prev => {
@@ -108,64 +113,76 @@ export default function Camera() {
     <>
       <ExpoStack.Screen options={{ headerShown: false }} />
 
-      <Stack position="relative" f={1}>
-        <GestureDetector gesture={pinchGesture}>
-          <ExpoCamera
-            style={{ flex: 1 }}
-            flashMode={flashMode}
-            type={cameraType}
-            zoom={zoom}
-          />
-        </GestureDetector>
-        <YStack pos="absolute" top={top} bottom={bottom} right={0} mx="$md">
-          <Button
-            backgroundColor="transparent"
-            aspectRatio={1}
-            onPress={() => {
-              router.back();
-            }}>
-            <Button.Icon>
-              <X color="white" />
-            </Button.Icon>
-          </Button>
-          <Stack height={40} />
+      <Theme name="light">
+        <Stack position="relative" f={1}>
+          <GestureDetector gesture={pinchGesture}>
+            <ExpoCamera
+              style={{ flex: 1 }}
+              flashMode={flashMode}
+              type={cameraType}
+              zoom={zoom}
+            />
+          </GestureDetector>
+          <YStack
+            pos="absolute"
+            top={top}
+            bottom={bottom}
+            right={0}
+            mx="$md"
+            space="$md">
+            <Button
+              aspectRatio={1}
+              onPress={() => {
+                router.back();
+              }}>
+              <Button.Icon>
+                <X color="white" />
+              </Button.Icon>
+            </Button>
+            <Stack height={40} />
 
-          <Button variant="ghost" aspectRatio={1} onPress={toggleFlashMode}>
-            <Button.Icon>
-              {flashMode === FlashMode.off ? (
-                <Zap color="white" />
-              ) : (
-                <ZapOff color="white" />
-              )}
-            </Button.Icon>
-          </Button>
-          <Button variant="ghost" aspectRatio={1} onPress={toggleCameraType}>
-            <Button.Icon>
-              <SwitchCamera color="white" />
-            </Button.Icon>
-          </Button>
-        </YStack>
-        <PlayButton
-          isRecording={isRecording}
-          position="absolute"
-          bottom={bottom}
-          als="center"
-          onPress={() => {
-            setIsRecording(prev => !prev);
-          }}
-        />
-      </Stack>
+            <Button aspectRatio={1} onPress={toggleFlashMode}>
+              <Button.Icon>
+                {flashMode === FlashMode.off ? (
+                  <Zap color="white" />
+                ) : (
+                  <ZapOff color="white" />
+                )}
+              </Button.Icon>
+            </Button>
+            <Button aspectRatio={1} onPress={toggleCameraType}>
+              <Button.Icon>
+                <SwitchCamera color="white" />
+              </Button.Icon>
+            </Button>
+          </YStack>
+          <PlayButton
+            percent={playPercent}
+            isRecording={isRecording}
+            position="absolute"
+            bottom={bottom}
+            als="center"
+            onPress={() => {
+              setIsRecording(prev => !prev);
+              playPercent.value = withTiming(1, {
+                duration: 10 * 1000,
+                easing: Easing.linear,
+              });
+            }}
+          />
+        </Stack>
+      </Theme>
     </>
   );
 }
 
 type PlayButtonProps = StackProps & {
   isRecording: boolean;
+  percent: SharedValue<number>;
 };
 const PlayButton = (props: PlayButtonProps) => {
   const { isRecording, ...rest } = props;
   const tokens = getTokens();
-  const scheme = useColorScheme();
 
   const indicatorHeight = 28;
   const circleHeight = indicatorHeight * 2.8;
@@ -183,19 +200,29 @@ const PlayButton = (props: PlayButtonProps) => {
 
   return (
     <Stack
+      pos="relative"
       jc="center"
       ai="center"
       height={circleHeight}
       aspectRatio={1}
-      borderColor="$backgroundPrimary"
-      borderWidth={borderWidth}
-      br={br}
       {...rest}>
+      <CircularProgress
+        percent={props.percent}
+        pos="absolute"
+        left={0}
+        right={0}
+        top={0}
+        bottom={0}
+        strokeColor="white"
+        strokeBackgroundColor="white"
+        strokeBackgroundOpacity={0.3}
+        strokeWidth={borderWidth}
+        zIndex={100}
+      />
       <BlurView
         intensity={10}
-        tint={scheme ?? 'default'}
+        tint="light"
         style={{
-          flex: 1,
           height: circleHeight - borderWidth * 2,
           aspectRatio: 1,
           position: 'absolute',
