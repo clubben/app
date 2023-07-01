@@ -14,6 +14,7 @@ module.exports = {
     },
     assetBundlePatterns: ['**/*'],
     plugins: [
+      'expo-localization',
       'expo-apple-authentication',
       [
         'expo-router',
